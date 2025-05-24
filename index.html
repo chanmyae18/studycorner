@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Corner - GED Learning Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="site-title-box">
+      <h1>📚 Study Corner</h1>
+    </div>
+ <nav>
+  <ul class="main-nav advanced-nav">
+    <li>
+      <a href="#class" class="nav-button-box">
+        <span class="nav-icon">🎓</span>
+        <span class="nav-label">Class</span>
+      </a>
+    </li>
+    <li>
+      <a href="#video" class="nav-button-box">
+        <span class="nav-icon">🎬</span>
+        <span class="nav-label">Video</span>
+      </a>
+    </li>
+    <li>
+      <a href="#podcast" class="nav-button-box">
+        <span class="nav-icon">🎧</span>
+        <span class="nav-label">Podcast</span>
+      </a>
+    </li>
+    <li>
+      <a href="#note" class="nav-button-box">
+        <span class="nav-icon">📝</span>
+        <span class="nav-label">Note</span>
+      </a>
+    </li>
+    <li>
+      <a href="#about" class="nav-button-box">
+        <span class="nav-icon">ℹ️</span>
+        <span class="nav-label">About</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-svg">
+        <!-- Animated SVG Graphic -->
+        <svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-labelledby="gedTitle">
+          <title id="gedTitle">Animated GED Logo</title>
+          <circle cx="60" cy="60" r="50" fill="#90CAF9">
+            <animate attributeName="r" values="50;55;50" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <text x="60" y="70" text-anchor="middle" font-size="32" fill="#fff" font-family="Arial" font-weight="bold">GED</text>
+        </svg>
+      </div>
+      <div class="hero-content">
+        <h2>Master Your GED <br>With Interactive Learning</h2>
+        <!-- Info Badge Example -->
+        <ged-info img="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" data-text="Tip: Consistency is key! Study a bit every day for GED success."></ged-info>
+      </div>
+    </section>
+
+    <!-- Class Section -->
+    <section id="class">
+      <h2 class="section-title">Class</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Live GED Math Class</h3>
+          <p>Join our interactive math class every Saturday at 10 AM.</p>
+        </div>
+        <div class="card">
+          <h3>Recorded Science Sessions</h3>
+          <p>Access previous class recordings anytime, anywhere.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Section -->
+    <section id="video">
+      <h2 class="section-title">Video Lessons</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Algebra Basics</h3>
+          <video controls width="100%" poster="https://img.youtube.com/vi/your-video-id1/hqdefault.jpg">
+            <source src="sample-ged-video.mp4" type="video/mp4">
+            Sorry, your browser doesn't support embedded videos.
+          </video>
+        </div>
+        <div class="card">
+          <h3>Reading Comprehension</h3>
+          <video controls width="100%" poster="https://img.youtube.com/vi/your-video-id2/hqdefault.jpg">
+            <source src="sample-ged-video2.mp4" type="video/mp4">
+            Sorry, your browser doesn't support embedded videos.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- Podcast Section -->
+    <section id="podcast">
+      <h2 class="section-title">Podcast</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>GED Success Stories</h3>
+          <audio controls>
+            <source src="sample-podcast.mp3" type="audio/mp3">
+            Sorry, your browser doesn't support embedded audio.
+          </audio>
+          <p>Listen to inspiring stories from GED graduates.</p>
+        </div>
+        <div class="card">
+          <h3>Study Tips Weekly</h3>
+          <audio controls>
+            <source src="sample-podcast2.mp3" type="audio/mp3">
+            Sorry, your browser doesn't support embedded audio.
+          </audio>
+          <p>Weekly tips to help you ace your GED exams.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Note Section -->
+    <section id="note">
+      <h2 class="section-title">Note</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Math Formula Sheet</h3>
+          <p>Download a handy reference of key math formulas for your GED.</p>
+        </div>
+        <div class="card">
+          <h3>Essay Writing Guide</h3>
+          <p>Step-by-step guide to writing high-scoring GED essays.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2>About Study Corner</h2>
+      <p>
+        Study Corner is your interactive hub for GED success. We offer live classes, video lessons, podcasts, and study notes to help you master every subject. Start your journey to a brighter future today!
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Study Corner. Lighting the path to GED success.</p>
+  </footer>
+
+  <!-- Custom Info Badge Web Component -->
+  <script>
+    class GedInfo extends HTMLElement {
+      constructor() {
+        super();
+        this.attachShadow({ mode: "open" });
+      }
+      connectedCallback() {
+        const wrapper = document.createElement('span');
+        wrapper.setAttribute('class', 'ged-info-wrapper');
+        const icon = document.createElement('img');
+        icon.setAttribute('src', this.getAttribute('img') || '');
+        icon.setAttribute('alt', 'Info');
+        icon.setAttribute('class', 'ged-info-icon');
+        const info = document.createElement('span');
+        info.setAttribute('class', 'ged-info-text');
+        info.textContent = this.getAttribute('data-text') || '';
+        wrapper.appendChild(icon);
+        wrapper.appendChild(info);
+
+        const style = document.createElement('style');
+        style.textContent = `
+          .ged-info-wrapper {
+            display: inline-flex;
+            align-items: center;
+            background: #e3f2fd;
+            border-radius: 1em;
+            padding: 0.5em 1em;
+            box-shadow: 0 2px 8px rgba(51, 51, 51, 0.06);
+            font-size: 1rem;
+            gap: 0.5em;
+            margin-top: 1em;
+            animation: fadeIn 1.2s;
+          }
+          .ged-info-icon {
+            width: 32px;
+            height: 32px;
+          }
+          .ged-info-text {
+            color: #1565c0;
+            font-weight: 500;
+          }
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px);}
+            to { opacity: 1; transform: translateY(0);}
+          }
+        `;
+        this.shadowRoot.append(style, wrapper);
+      }
+    }
+    customElements.define('ged-info', GedInfo);
+  </script>
+</body>
+</html>
